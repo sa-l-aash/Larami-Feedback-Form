@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Customer Feedback</title>
+  <style>
+    body {
+      font-family: Arial;
+      max-width: 500px;
+      margin: 40px auto;
+      text-align: center;
+    }
+
+    .stars button {
+      font-size: 30px;
+      border: none;
+      background: none;
+      cursor: pointer;
+    }
+
+    #feedbackForm {
+      display: none;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<h2>How was your experience?</h2>
+
+<div class="stars">
+  <button onclick="handleRating(1)">⭐</button>
+  <button onclick="handleRating(2)">⭐</button>
+  <button onclick="handleRating(3)">⭐</button>
+  <button onclick="handleRating(4)">⭐</button>
+  <button onclick="handleRating(5)">⭐</button>
+</div>
+
+<div id="feedbackForm">
+  <h3>We're sorry we missed the mark.</h3>
+  <p>Please tell us how we can improve.</p>
+
+  <textarea id="comment" rows="5" cols="40"></textarea><br><br>
+
+  <button onclick="submitFeedback()">Submit Feedback</button>
+</div>
+
+<script>
+  function handleRating(rating) {
+
+    if (rating <= 3) {
+      document.getElementById('feedbackForm').style.display = 'block';
+    } else {
+
+      // Replace with your Google review URL
+      window.location.href =
+      "https://g.page/r/CVpS_cOBUCQjEBM/review";
+    }
+  }
+
+  function submitFeedback() {
+    const comment = document.getElementById('comment').value;
+
+    // Send to backend/email/CRM here
+    console.log(comment);
+
+    alert("Thank you for your feedback!");
+  }
+</script>
+
+</body>
+</html>
